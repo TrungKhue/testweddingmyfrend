@@ -43,5 +43,18 @@
     </div>
 
 </body>
+<script>
+    window.addEventListener('load', function () {
+        // Sau 2.5 giây (1s chờ + 1.5s chạy), xóa bỏ hoàn toàn lớp phủ
+        setTimeout(function () {
+            const overlay = document.querySelector('.door-wrapper');
+            if (overlay) {
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s';
+                setTimeout(() => overlay.remove(), 500); // Xóa hẳn khỏi mã nguồn
+            }
+        }, 2500);
+    });
+</script>
 
 </html>
