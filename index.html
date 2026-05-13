@@ -6,42 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Card Responsive</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="storycs.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- Lớp phủ cánh cửa mở ra -->
-    <div class="door-wrapper">
-        <div class="door door-left">
-            <img src="image/bia/left-thiep.webp" alt="Bìa trái">
+    <div>
+        <!-- Lớp phủ cánh cửa mở ra -->
+        <div class="door-wrapper">
+            <div class="door door-left">
+                <img src="image/bia/left-thiep.webp" alt="Bìa trái">
+            </div>
+            <div class="door door-right">
+                <img src="image/bia/right-thiep.webp" alt="Bìa phải">
+            </div>
         </div>
-        <div class="door door-right">
-            <img src="image/bia/right-thiep.webp" alt="Bìa phải">
+        <div class="wedding-card">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="image/2.webp">
+                <img src="image/1.webp" alt="Wedding Image" class="background-img">
+            </picture>
+
+            <div class="content-overlay">
+                <h1 class="main-title">
+                    <span class="left-part">Happy</span>
+                    <span class="right-part">wedding</span>
+                </h1>
+                <h2 class="couple-names">Xuân Thịnh & Diễm Hằng</h2>
+                <p class="wedding-date">21/09/2026 Nhà Gái - 22/09/2026 Nhà Trai</p>
+
+                <div class="button-group">
+                    <button class="btn"><span class="icon">❤️</span> Gửi lời chúc</button>
+                    <button class="btn">Xác nhận tham dự</button>
+                    <button class="btn"><span class="icon">🧧</span> Mừng cưới</button>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="wedding-card">
-        <picture>
-            <source media="(min-width: 1024px)" srcset="image/2.webp">
-            <img src="image/1.webp" alt="Wedding Image" class="background-img">
-        </picture>
+        <div class="story-wrapper">
+            <!-- Cột bên trái: Nội dung văn bản -->
+            <div class="story-left">
+                <div class="story-header">
+                    <img src="image/logostory.webp" alt="icon" class="leaf-icon"> <!-- Bạn thay bằng icon lá -->
+                    <h2>CHUYỆN CHÚNG MÌNH</h2>
+                </div>
+                <div class="story-content">
+                    <p>Chúng mình quen nhau khi cùng làm việc ở công ty. Thịnh là cấp trên, Hằng là cấp dưới Chúng mình
+                        quen nhau khi cùng làm việc ở công ty. Thịnh là cấp trên, Hằng là cấp dưới. Thường xuyên phải
+                        tương tác với nhau, nên cứ thế phát sinh tình cảm khi nào chả hay. Các cụ hay bảo nên tránh các
+                        trường hợp con thầy, vợ bạn, gái cơ quan để yêu đương. Ấy thế mà chả hiểu sao, dây tơ hồng siết
+                        chặt quá nên là 2 đứa cứ thế va vào nhau. Yêu nhau nhùng nhằng thế mà giờ cũng hơn 3 năm, trải
+                        qua nhiều cảm xúc cùng nhau, vui có buồn có, nhưng tốt cái là chưa có chưa tay 😂. Mỗi đứa giờ 1
+                        công việc, 1 định hướng khác nhau, nhưng có cái yêu nhau thì vẫn còn cùng nhau 🤣😍. Thế là 1
+                        ngày đẹp trời, Thịnh mua cái nhẫn, dẫn nàng đến quán bò bít tết khứa khứa uống rượu vang, rồi á
+                        là quỳ xuống hỏi mình cưới nhau nha, Hằng lia lịa gật đầu. Thế là giờ chúng mình có đám cưới,
+                        thế là chúng mình về chung 1 nhà đó mí bạn :)) Chuyện tình yêu chúng mình đơn giản thế thôi đó.
+                        Cảm ơn bạn đã đọc đến tận đây nhé !! Cảm ơn bạn vì đã dành tình cảm cho Vợ Chồng mình !!! Yêu
+                        bạn 😜❤️</p>
+                    <!-- Bạn copy nốt đoạn văn bản từ ảnh vào đây nhé -->
+                </div>
+            </div>
 
-        <div class="content-overlay">
-            <h1 class="main-title">
-                <span class="left-part">Happy</span>
-                <span class="right-part">wedding</span>
-            </h1>
-            <h2 class="couple-names">Xuân Thịnh & Diễm Hằng</h2>
-            <p class="wedding-date">21/09/2026 Nhà Gái - 22/09/2026 Nhà Trai</p>
-
-            <div class="button-group">
-                <button class="btn"><span class="icon">❤️</span> Gửi lời chúc</button>
-                <button class="btn">Xác nhận tham dự</button>
-                <button class="btn"><span class="icon">🧧</span> Mừng cưới</button>
+            <!-- Cột bên phải: Hiệu ứng ảnh chồng lên nhau -->
+            <div class="story-right">
+                <div class="image-stack">
+                    <img src="image/3.webp" alt="Wedding 1" class="img-main">
+                    <img src="image/4.webp" alt="Wedding 2" class="img-sub-left">
+                    <img src="image/5.webp" alt="Wedding 3" class="img-sub-right">
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 <script>
     window.addEventListener('load', function () {
