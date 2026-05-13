@@ -38,7 +38,7 @@
 .story-right {
     flex: 1;
     position: relative;
-    height: 550px;
+    height: 600px;
 }
 
 .image-stack {
@@ -56,7 +56,7 @@
 }
 
 .img-main {
-    width: 85%;
+    width: 105%;
     top: 0;
     right: 0;
     z-index: 1;
@@ -64,15 +64,15 @@
 
 .img-sub-left {
     width: 55%;
-    top: 180px;
-    left: 0;
+    top: 190px;
+    left: 0px;
     z-index: 2;
 }
 
 .img-sub-right {
     width: 55%;
     bottom: 0;
-    right: 20px;
+    right: 10px;
     z-index: 3;
 }
 
