@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Vẫn giữ cái này để card nằm giữa theo chiều ngang */
+    align-items: flex-start;  /* SỬA CHỖ NÀY: Thay center thành flex-start để đẩy lên trên */
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 0;           /* Đảm bảo không có khoảng cách phía trên */
+}
+
+.wedding-card {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Độ rộng tối đa của card */
+    /* aspect-ratio: 3 / 2; Giữ tỷ lệ khung hình giống ảnh mẫu */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    line-height: 0; /* Khử khoảng trắng li ti dưới đáy ảnh */
+}
+
+.background-img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    
+}
+
+/* Lớp phủ để làm tối ảnh một chút giúp chữ nổi hơn */
+.content-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 15px 20px 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    text-align: center;
+    color: white;
+    line-height: normal; /* Trả lại line-height cho chữ */
+}
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #f1d592; /* Màu vàng kim nhạt */
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.wedding-date {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: white;
+    color: #333;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #f8f8f8;
+    transform: translateY(-2px);
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    .couple-names {
+        font-size: 1.2rem;
+    }
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
