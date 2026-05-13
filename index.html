@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Card Responsive</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
-<body>
 
-    <div class="wedding-card">
-    <picture>
-        <source media="(min-width: 1024px)" srcset="image/2.webp">
-        <img src="image/1.webp" alt="Wedding Image" class="background-img">
-    </picture>
-    
-    <div class="content-overlay">
-        <h1 class="main-title">Happy wedding</h1>
-        <h2 class="couple-names">Xuân Thịnh & Diễm Hằng</h2>
-        <p class="wedding-date">21/09/2026 Nhà Gái - 22/09/2026 Nhà Trai</p>
-        
-        <div class="button-group">
-            <button class="btn"><span class="icon">❤️</span> Gửi lời chúc</button>
-            <button class="btn">Xác nhận tham dự</button>
-            <button class="btn"><span class="icon">🧧</span> Mừng cưới</button>
+<body>
+    <!-- Lớp phủ cánh cửa mở ra -->
+    <div class="door-wrapper">
+        <div class="door door-left">
+            <img src="image/bia/left-thiep.webp" alt="Bìa trái">
+        </div>
+        <div class="door door-right">
+            <img src="image/bia/right-thiep.webp" alt="Bìa phải">
         </div>
     </div>
-</div>
+    <div class="wedding-card">
+        <picture>
+            <source media="(min-width: 1024px)" srcset="image/2.webp">
+            <img src="image/1.webp" alt="Wedding Image" class="background-img">
+        </picture>
+
+        <div class="content-overlay">
+            <h1 class="main-title">
+                <span class="left-part">Happy</span>
+                <span class="right-part">wedding</span>
+            </h1>
+            <h2 class="couple-names">Xuân Thịnh & Diễm Hằng</h2>
+            <p class="wedding-date">21/09/2026 Nhà Gái - 22/09/2026 Nhà Trai</p>
+
+            <div class="button-group">
+                <button class="btn"><span class="icon">❤️</span> Gửi lời chúc</button>
+                <button class="btn">Xác nhận tham dự</button>
+                <button class="btn"><span class="icon">🧧</span> Mừng cưới</button>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>

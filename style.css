@@ -4,32 +4,127 @@
     box-sizing: border-box;
 }
 
+/* --- CẤU TRÌNH CHUNG --- */
+.door-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.door {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.door img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Quan trọng để ảnh luôn phủ kín nửa màn hình */
+}
+
+/* --- ĐIỀU CHỈNH RIÊNG CHO ĐIỆN THOẠI (Dưới 768px) --- */
+@media (max-width: 767px) {
+    .door-left {
+        margin-right: -75%;
+        /* Tăng độ lấn lên trên mobile để che khoảng trắng */
+        z-index: 20;
+    }
+
+    .door-right {
+        margin-left: -25%;
+        /* Tăng độ lấn lên trên mobile */
+        z-index: 10;
+    }
+
+    /* Khi mở ra trên mobile phải đẩy xa hơn nữa */
+    @keyframes openLeft {
+        to {
+            transform: translateX(-125%);
+        }
+    }
+
+    @keyframes openRight {
+        to {
+            transform: translateX(125%);
+        }
+    }
+}
+
+/* --- ĐIỀU CHỈNH CHO MÁY TÍNH (Trên 768px) --- */
+@media (min-width: 768px) {
+    .door-left {
+        margin-right: -90%;
+        z-index: 20;
+    }
+
+    .door-right {
+        margin-left: -10%;
+        z-index: 10;
+    }
+
+    @keyframes openLeft {
+        to {
+            transform: translateX(-110%);
+        }
+    }
+
+    @keyframes openRight {
+        to {
+            transform: translateX(110%);
+        }
+    }
+}
+
+/* Kích hoạt animation chung */
+.door-left {
+    animation: openLeft 1.5s forwards 1s;
+    position: relative;
+}
+
+.door-right {
+    animation: openRight 1.5s forwards 1s;
+    position: relative;
+}
+
 body {
     display: flex;
-    justify-content: center; /* Vẫn giữ cái này để card nằm giữa theo chiều ngang */
-    align-items: flex-start;  /* SỬA CHỖ NÀY: Thay center thành flex-start để đẩy lên trên */
+    justify-content: center;
+    /* Vẫn giữ cái này để card nằm giữa theo chiều ngang */
+    align-items: flex-start;
+    /* SỬA CHỖ NÀY: Thay center thành flex-start để đẩy lên trên */
     min-height: 100vh;
     background-color: #f0f0f0;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 0;           /* Đảm bảo không có khoảng cách phía trên */
+    padding-top: 0;
+    /* Đảm bảo không có khoảng cách phía trên */
 }
 
 .wedding-card {
     position: relative;
     width: 100%;
-    max-width: 100%; /* Độ rộng tối đa của card */
+    max-width: 100%;
+    /* Độ rộng tối đa của card */
     /* aspect-ratio: 3 / 2; Giữ tỷ lệ khung hình giống ảnh mẫu */
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    line-height: 0; /* Khử khoảng trắng li ti dưới đáy ảnh */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    line-height: 0;
+    /* Khử khoảng trắng li ti dưới đáy ảnh */
 }
 
 .background-img {
     width: 100%;
     object-fit: cover;
     display: block;
-    
+
 }
 
 /* Lớp phủ để làm tối ảnh một chút giúp chữ nổi hơn */
@@ -39,19 +134,21 @@ body {
     left: 0;
     width: 100%;
     padding: 40px 15px 20px 15px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     text-align: center;
     color: white;
-    line-height: normal; /* Trả lại line-height cho chữ */
+    line-height: normal;
+    /* Trả lại line-height cho chữ */
 }
 
 .main-title {
     font-family: 'Great Vibes', cursive;
     font-size: 5rem;
-    color: #f1d592; /* Màu vàng kim nhạt */
+    color: #f1d592;
+    /* Màu vàng kim nhạt */
     margin-bottom: 10px;
     font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .couple-names {
@@ -104,11 +201,84 @@ body {
     .main-title {
         font-size: 3rem;
     }
+
     .couple-names {
         font-size: 1.2rem;
     }
+
     .btn {
         padding: 8px 15px;
         font-size: 0.8rem;
     }
+}
+
+/* 1. Hiệu ứng đẩy từ trái vào cho chữ "Happy" */
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 2. Hiệu ứng đẩy từ phải vào cho chữ "wedding" */
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 3. Hiệu ứng đẩy từ dưới lên cho phần còn lại */
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chữ Happy Wedding bên trái */
+.left-part {
+    display: inline-block;
+    opacity: 0;
+    /* THÊM DÒNG NÀY: Để ẩn chữ đi ngay từ đầu */
+    animation: slideFromLeft 1.2s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Chữ Happy Wedding bên phải */
+.right-part {
+    display: inline-block;
+    opacity: 0;
+    /* THÊM DÒNG NÀY: Để ẩn chữ đi ngay từ đầu */
+    animation: slideFromRight 1.2s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Các phần dưới ông đã có opacity: 0 nên nó chạy đúng là phải rồi */
+.couple-names,
+.wedding-date {
+    opacity: 0;
+    animation: slideFromBottom 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.button-group {
+    opacity: 0;
+    animation: slideFromBottom 1s ease-out forwards;
+    animation-delay: 3.5s;
 }
