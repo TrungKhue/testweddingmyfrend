@@ -1,0 +1,13 @@
+/* Trạng thái ban đầu: Ẩn và nằm thấp xuống 30px */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    /* Tốc độ hiện lên (0.8 giây) */
+}
+
+/* Trạng thái sau khi lướt tới: Hiện lên và về vị trí cũ */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

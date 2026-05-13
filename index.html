@@ -7,6 +7,7 @@
     <title>Wedding Card Responsive</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="storycs.css">
+    <link rel="stylesheet" href="chuyendong.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
 </head>
@@ -44,14 +45,14 @@
 
             </div>
         </div>
-        <div class="story-wrapper">
+        <div class="story-wrapper ">
             <!-- Cột bên trái: Nội dung văn bản -->
-            <div class="story-left">
-                <div class="story-header">
+            <div class="story-left story-left reveal">
+                <div class="story-header ">
                     <img src="image/logostory.webp" alt="icon" class="leaf-icon"> <!-- Bạn thay bằng icon lá -->
                     <h2>CHUYỆN CHÚNG MÌNH</h2>
                 </div>
-                <div class="story-content">
+                <div class="story-content ">
                     <p>Chúng mình quen nhau khi cùng làm việc ở công ty. Thịnh là cấp trên, Hằng là cấp dưới Chúng mình
                         quen nhau khi cùng làm việc ở công ty. Thịnh là cấp trên, Hằng là cấp dưới. Thường xuyên phải
                         tương tác với nhau, nên cứ thế phát sinh tình cảm khi nào chả hay. Các cụ hay bảo nên tránh các
@@ -71,13 +72,32 @@
             <!-- Cột bên phải: Hiệu ứng ảnh chồng lên nhau -->
             <div class="story-right">
                 <div class="image-stack">
-                    <img src="image/3.webp" alt="Wedding 1" class="img-main">
-                    <img src="image/4.webp" alt="Wedding 2" class="img-sub-left">
-                    <img src="image/5.webp" alt="Wedding 3" class="img-sub-right">
+                    <img src="image/3.webp" alt="Wedding 1" class="img-main story-left reveal">
+                    <img src="image/4.webp" alt="Wedding 2" class="img-sub-left story-left reveal">
+                    <img src="image/5.webp" alt="Wedding 3" class="img-sub-right story-left reveal">
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Khi phần tử lọt vào tầm mắt, thêm class 'active'
+                    entry.target.classList.add('active');
+                } else {
+                    // Nếu muốn mỗi lần lướt lên rồi lướt xuống lại nó lại nhảy lần nữa thì dùng dòng dưới
+                    // entry.target.classList.remove('active'); 
+                }
+            });
+        }, {
+            threshold: 0.1 // Chỉ cần hiện ra 10% là nó bắt đầu nhảy hiệu ứng
+        });
+
+        // Tìm tất cả các phần tử có class 'reveal' để theo dõi
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach((el) => observer.observe(el));
+    </script>
 </body>
 <script>
     window.addEventListener('load', function () {
